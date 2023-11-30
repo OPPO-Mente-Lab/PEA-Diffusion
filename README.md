@@ -3,6 +3,10 @@
 
 The official code for the paper [PEA-Diffusion: Parameter-Efficient Adapter with Knowledge Distillation in non-English Text-to-Image Generation](https://arxiv.org/abs/2311.17086).
 
+## Introduction
+
+We are inspired to propose a simple plug-and-play language transfer method based on knowledge distillation. All we need to do is train a lightweight MLP-like parameter-efficient adapter (PEA) with only 6M parameters under teacher knowledge distillation along with a small parallel data corpus. We are surprised to find that freezing the parameters of UNet can still achieve remarkable performance on the language-specific prompt evaluation set, demonstrating that PEA can stimulate the potential generation ability of the original UNet. Additionally, it closely approaches the performance of the English text-to-image model on a general prompt evaluation set. Furthermore, our adapter can be used as a plugin to achieve significant results in downstream tasks in cross-lingual text-to-image generation.
+
 ## Requirements
 A suitable [conda](https://conda.io/) environment named `PEA-Diffusion` can be created
 and activated with:
@@ -39,6 +43,27 @@ python tests/test_sdxl_zh.py
 For more downstream test scripts, please view the tests directory
 
 
+## Downstream Performance
+The PEA module can be easily applied to a variety of downstream tasks with plug-and-play,The figure below shows seven common downstream tasks.
+
+| Downstream Task       | Model                                | Model Path                                                                                                  |
+|-----------------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Fine-tuned Checkpoint | xxmix9realistic samaritan-3d-cartoon | https://civitai.com/models/124421/xxmix9realisticsdxl https://civitai.com/models/81270/samaritan-3d-cartoon |
+| LoRA                  | csal_scenery                         | https://civitai.com/models/118559/ancient-chinese-scenery-background-xl                                     |
+| ControlNet            | controlnet-canny                     | https://huggingface.co/diffusers/controlnet-canny-sdxl-1.0                                                  |
+| Inpainting            | stable-diffusion-xl-1.0-inpainting-0.1                   | https://huggingface.co/diffusers/stable-diffusion-xl-1.0-inpainting-0.1                                     |
+| Model Compression     | SSD-1B                               | https://huggingface.co/segmind/SSD-1B                                                                       |
+| Sampling Acceleration | lcm-lora-sdxl                        | https://huggingface.co/latent-consistency/lcm-lora-sdxl                                                     |
+| Sampling Acceleration | SDXL-Turbo                           | https://huggingface.co/stabilityai/sdxl-turbo                                                               |
+
+
+
+
+<p align="center">
+  <img src="figures/downstream.png" width="99%">
+</p>
+
+
 ## TODOs
 
 - [x] Release inference code
@@ -48,8 +73,7 @@ For more downstream test scripts, please view the tests directory
 
 
 ## Acknowledgements
-we borrow some code from [TorchData](https://github.com/pytorch/data/blob/a5b4720dece60565788ac4c9a85e01719188b28e/torchdata/datapipes/iter/util/samplemultiplexer.py)
-
+We borrow some code from [TorchData](https://github.com/pytorch/data/blob/a5b4720dece60565788ac4c9a85e01719188b28e/torchdata/datapipes/iter/util/samplemultiplexer.py)
 
 # Citation
 ```

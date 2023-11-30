@@ -49,3 +49,16 @@ For more downstream test scripts, please view the tests directory
 
 ## Acknowledgements
 we borrow some code from [TorchData](https://github.com/pytorch/data/blob/a5b4720dece60565788ac4c9a85e01719188b28e/torchdata/datapipes/iter/util/samplemultiplexer.py)
+
+
+# Citation
+```
+@misc{ma2023peadiffusion,
+      title={PEA-Diffusion: Parameter-Efficient Adapter with Knowledge Distillation in non-English Text-to-Image Generation}, 
+      author={Jian Ma and Chen Chen and Qingsong Xie and Haonan Lu},
+      year={2023},
+      eprint={2311.17086},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```

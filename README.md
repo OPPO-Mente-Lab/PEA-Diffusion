@@ -1,4 +1,4 @@
-# PEA-Diffusion
+# PEA-Diffusion (ECCV 2024)
 
 
 The official code for the paper [PEA-Diffusion: Parameter-Efficient Adapter with Knowledge Distillation in non-English Text-to-Image Generation](https://arxiv.org/abs/2311.17086).

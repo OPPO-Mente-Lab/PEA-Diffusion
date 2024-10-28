@@ -3,7 +3,7 @@
 
 The official code for the paper [PEA-Diffusion: Parameter-Efficient Adapter with Knowledge Distillation in non-English Text-to-Image Generation](https://arxiv.org/abs/2311.17086).
 
-## Introduction
+## Checkpoint
 Checkpoint path https://huggingface.co/OPPOer
 
 ## Introduction
